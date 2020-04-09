@@ -9,7 +9,7 @@ pkgname=jellyfin
 pkgver=10.5.3
 pkgrel=1
 pkgdesc='The Free Software Media System'
-arch=('x86_64' 'aarch64' 'armv7h')
+arch=('x86_64' 'armv7h' 'aarch64')
 url='https://github.com/jellyfin/jellyfin'
 license=('GPL2')
 depends=('dotnet-runtime>=3' 'aspnet-runtime>=3' 'ffmpeg' 'sqlite')
