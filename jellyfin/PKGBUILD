@@ -1,8 +1,9 @@
 # Maintainer: robot <cultofrobots [at] protonmail [dot] com>
-# Based on PKGBUILD from AUR:
-# Maintainer: Luca Weiss <luca (at) z3ntu (dot) xyz>
-# Contributor: Maxime Gauduin <alucryd@archlinux.org>
-# Contributor: Daniel Seymour <dannyseeless@gmail.com>
+# Website: https://github.com/CultofRobots/
+# Based on PKGBUILD from AUR
+# Contributor: Luca Weiss <luca [at] z3ntu [dot] xyz>
+# Contributor: Maxime Gauduin <alucryd [at] archlinux [dot] org>
+# Contributor: Daniel Seymour <dannyseeless [at] gmail [dot] com>
 
 pkgname=jellyfin
 pkgver=10.5.3

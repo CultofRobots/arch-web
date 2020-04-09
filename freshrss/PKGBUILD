@@ -1,7 +1,7 @@
 # Maintainer: robot <cultofrobots [at] protonmail [dot] com>
 # Website: https://github.com/CultofRobots/
-# Based on PKGBUILD from AUR maintained by the following people:
-# Maintainer: Cedric Girard <cgirard [dot] archlinux [at] valinor [dot] fr>
+# Based on PKGBUILD from AUR
+# Contributor: Cedric Girard <cgirard [dot] archlinux [at] valinor [dot] fr>
 
 pkgname=freshrss
 pkgver=1.16.0
