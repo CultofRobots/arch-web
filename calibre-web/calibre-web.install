@@ -1,0 +1,8 @@
+post_install() {
+  post_upgrade;
+}
+
+post_upgrade() {
+  # fix ownership of /usr/share/webapps/calibre-web
+  [ -d /usr/share/webapps/calibre-web ] && chown -R calibre-web:calibre-web /usr/share/webapps/calibre-web
+}
