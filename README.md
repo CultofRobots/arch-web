@@ -8,5 +8,6 @@ Web services PKGBUILDs for Arch Linux and Arch Linux ARM
 * [**icecast-kh**](https://karlheyes.github.io/): Icecast2 streaming audio server (Karl Heyes Branch).
 * [**jellyfin**](https://jellyfin.org): A volunteer-built media solution that enables you to collect, manage, and stream your media.
 * [**rompr**](https://fatg3erman.github.io/RompR): A Web frontend to MPD, the Music Player Daemon.
+* [**rss-bridge**](https://github.com/RSS-Bridge/rss-bridge/wiki): The RSS feed for websites missing it.
 * [**ruTorrent**](https://github.com/Novik/ruTorrent): Yet another web front-end for rTorrent.
 * [**wallabag**](https://wallabag.org): Self hostable application for saving web pages.
