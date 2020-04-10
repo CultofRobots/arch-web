@@ -1,7 +1,7 @@
 # Maintainer: robot <cultofrobots [at] protonmail [dot] com>
 # Website: https://github.com/CultofRobots
 # Based on PKGBUILD from AUR
-# Contributer: gls <ghostlovescorebg [at] gmail [dot] com>
+# Contributor: gls <ghostlovescorebg [at] gmail [dot] com>
 
 pkgname=rompr
 pkgver=1.41
