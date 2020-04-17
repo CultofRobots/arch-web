@@ -5,7 +5,7 @@
 
 pkgname=rompr
 pkgver=1.42
-pkgrel=1
+pkgrel=2
 pkgdesc="Web frontend to MPD"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://fatg3erman.github.io/RompR/"
@@ -17,17 +17,20 @@ conflicts=()
 replaces=()
 backup=()
 install=rompr.install
-source=("https://github.com/fatg3erman/RompR/releases/download/${pkgver}/${pkgname}-${pkgver}.zip"
-        'rompr.install')
+source=("${pkgname}-${pkgver}.zip::https://github.com/fatg3erman/RompR/releases/download/${pkgver}/${pkgname}-${pkgver}.zip"
+        'rompr.install'
+        'nginx.example.conf')
 sha256sums=('cc3420fcc1c10200000177ea2f496e36d77cf94c592cb7b1f76cbebab5f9da10'
-            'f178fc1c2d0feaa5fe88f090e18a01fa89d7d70fd2588b9224c4656b3ea8c0e2')
-
-build () {
-	cd "${srcdir}/${pkgname}"
-}
+            'e4109f21b6d2316a091cacd02fb51d9583b985901ede172e2d24ee4ea8e9bd18'
+            '1737c511dc4a65d54a554ab013f3821b6c5332bb77858c66593b67872977b388')
 
 package() {
 	cd "${srcdir}"
 	install -d "${pkgdir}/usr/share/webapps"
 	cp -ra rompr "${pkgdir}/usr/share/webapps"
+
+  install -d -m 755 ${pkgdir}/var/lib/${pkgname}/{prefs,albumart}
+  install -D -m 644 "${srcdir}/nginx.example.conf" "${pkgdir}/var/lib/${pkgname}/"
+  ln -s "/var/lib/${pkgname}/prefs" "${pkgdir}/usr/share/webapps/${pkgname}/"
+  ln -s "/var/lib/${pkgname}/albumart" "${pkgdir}/usr/share/webapps/${pkgname}/"
 }

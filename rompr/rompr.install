@@ -1,7 +1,15 @@
 post_install() {
   ln -s /usr/share/webapps/rompr /srv/http/
+  echo -e "\e[1;93mINFO:\e[1;39m check '/var/lib/rompr/nginx.example.conf' to setup your webserver"
+  echo -e "\e[1;93mINFO:\e[1;39m check 'https://fatg3erman.github.io/RompR/' for additional installion and configuration options"
+  post_upgrade;
+}
+
+post_upgrade() {
+  # fix ownership of /var/lib/rompr
+  [ -d /var/lib/rompr ] && chown -R http:http /var/lib/rompr
 }
 
 post_remove() {
-  [ -L /srv/http/rompr ] && rm -f /srv/http/rompr
+  [ -L /srv/http/rompr ] && unlink /srv/http/rompr
 }
