@@ -5,7 +5,7 @@
 
 pkgname=bookstack
 _pkgname=BookStack
-pkgver=0.29.0
+pkgver=0.29.2
 pkgrel=1
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -15,7 +15,7 @@ depends=('php' 'php-gd' 'php-tidy')
 makedepends=('composer')
 backup=("etc/webapps/$pkgname/config.env")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/BookStackApp/BookStack/archive/v${pkgver}.tar.gz")
-sha256sums=('c96a6db771c22fb430e6da3e7f929753cc3a122218703071901bddfa528b67de')
+sha256sums=('42b3f6016b75e21420df914724c84491b9057a3edd2b3d0495a7e8716b68349b')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"
