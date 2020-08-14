@@ -10,7 +10,7 @@ pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
 license=('GPL')
-depends=('mariadb>=10.0' 'php>=7.1')
+depends=('mariadb>=10.0' 'php>=7.1' 'php-intl')
 optdepends=('lame: all transcoding/downsampling'
             'vorbis-tools: all transcoding'
             'flac: flac transcoding/downsampling'
