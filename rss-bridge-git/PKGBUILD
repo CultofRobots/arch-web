@@ -1,0 +1,57 @@
+# Maintainer: robot <cultofrobots [at] protonmail [dot] com>
+# Website: https://github.com/CultofRobots/
+# Based on PKGBUILD from AUR
+# Contributor: gilbus <aur [at] tinkershell [dot] eu>
+
+pkgname=rss-bridge-git
+_pkgname=rss-bridge
+pkgver=2020.02.26.r79.gc21a805c
+pkgrel=1
+pkgdesc="The RSS feed for websites missing it"
+arch=('x86_64' 'armv7h' 'aarch64')
+url="https://github.com/RSS-Bridge/rss-bridge/wiki"
+license=("Unlicense")
+depends=(php)
+backup=(
+  "etc/webapps/$pkgname/config.ini.php"
+  "usr/share/webapps/$pkgname/whitelist.txt"
+  )
+source=(
+  "$_pkgname::git+https://github.com/RSS-Bridge/rss-bridge.git"
+  "$_pkgname.tmpfiles"
+)
+sha256sums=('SKIP'
+            'f895b19c10923515a157df08c9cf1128c93cd3fe43afc935b9fa9647138f99f2')
+provides=("rss-bridge")
+conflicts=("rss-bridge")
+
+pkgver() {
+  cd "$_pkgname"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+
+  cd "$_pkgname"
+  _instdir=$pkgdir/usr/share/webapps/$_pkgname/
+
+  # install project
+  mkdir -p "$_instdir"
+  cp -ra * "$_instdir/"
+
+  # setup cache dir
+  install -Dm644 "$srcdir/$_pkgname.tmpfiles" "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+  rm -r "$_instdir"/cache
+  ln -sf /var/cache/$pkgname "$_instdir"/cache
+
+  # link configs to /etc
+  install -D config.default.ini.php $pkgdir/etc/webapps/$pkgname/config.ini.php
+  install -D whitelist.default.txt $pkgdir/etc/webapps/$pkgname/whitelist.txt
+  ln -s "/etc/webapps/$pkgname/config.ini.php" "$pkgdir/usr/share/webapps/$_pkgname/config.ini.php"
+  ln -s "/etc/webapps/$pkgname/whitelist.txt" "$pkgdir/usr/share/webapps/$_pkgname/whitelist.txt"
+
+  # fix permissions
+  chown -R http:http $pkgdir/etc/webapps/$pkgname $pkgdir/usr/share/webapps/$_pkgname/
+  find "$pkgdir"/usr/share/webapps/${_pkgname} -type f -exec chmod 0644 {} \;
+  find "$pkgdir"/usr/share/webapps/${_pkgname} -type d -exec chmod 0755 {} \;
+}
