@@ -42,7 +42,7 @@ package() {
   # setup cache dir
   install -Dm644 "$srcdir/$_pkgname.tmpfiles" "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
   rm -r "$_instdir"/cache
-  ln -sf /var/cache/$pkgname "$_instdir"/cache
+  ln -sf /var/cache/$_pkgname "$_instdir"/cache
 
   # link configs to /etc
   install -D config.default.ini.php $pkgdir/etc/webapps/$pkgname/config.ini.php
