@@ -18,7 +18,7 @@ depends=(php curl gzip coreutils)
 optdepends=('mod_scgi: for SCGI protocol')
 conflicts=(rutorrent-plugins)
 source=( 
-    $pkgname-$pkgver.tar.gz::https://github.com/Novik/ruTorrent/archive/v${_pkgver}.tar.gz
+    $pkgname-$pkgver.tar.gz::https://github.com/Novik/ruTorrent/archive/v${pkgver}.tar.gz
     apache.example.conf
     apache.example.site.conf
 )
