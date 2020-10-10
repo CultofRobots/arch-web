@@ -4,7 +4,7 @@
 # Contributor: Spencer Muise <smuise [at] spencermuise [dot] ca>
 
 pkgname=calibre-web
-pkgver=0.6.6
+pkgver=0.6.9
 pkgrel=1
 pkgdesc="Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -36,7 +36,7 @@ source=(
   'calibre-web.sysusers'
   'calibre-web.tmpfiles'
 )
-sha256sums=('e2a4d4fe239083a500214411e14f6613bda54796beab21063ad71c4d9c570ffc'
+sha256sums=('7bcf301c0562f31353a7303ad59fa76758d9afbd56064d11a88c1838bcd02408'
             '91352616c004ab08590e892b1f8a74cf53fda876254699e3126021f557ea0231'
             'f2072ddcbd5753b75272b90d571c49b665506705d8da682210be64f908708e2c'
             'b5d6c225761244b6c698af0279c9501bb9514e3e2a5151ca6e3212a4f5d0d76a'
