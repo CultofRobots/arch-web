@@ -14,7 +14,7 @@ license=("Unlicense")
 depends=(php)
 backup=(
   "etc/webapps/$pkgname/config.ini.php"
-  "usr/share/webapps/$pkgname/whitelist.txt"
+  "etc/webapps/$pkgname/whitelist.txt"
   )
 source=(
   "$_pkgname::git+https://github.com/RSS-Bridge/rss-bridge.git"
