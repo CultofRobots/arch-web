@@ -1,0 +1,29 @@
+# Maintainer: robot <cultofrobots [at] protonmail [dot] com>
+# Website: https://github.com/CultofRobots/
+# Based on PKGBUILD from AUR# 
+# Contributor: Robert Knauer <robert [at] privatdemail [dot] net>
+# Contributor: bl4ckb1t <bl4ckb1t [at] gmail [dot] com>
+
+pkgname=ices2
+_pkgname=ices
+pkgver=2.0.3
+pkgrel=1
+pkgdesc="A source client for broadcasting in Ogg Vorbis format to an icecast2 server" 
+arch=('x86_64' 'armv7h' 'aarch64')
+url="http://icecast.org/ices.php"
+license=('GPL')
+depends=('libogg' 'libvorbis' 'libxml2' 'libshout')
+source=("http://downloads.us.xiph.org/releases/ices/${_pkgname}-${pkgver}.tar.gz")
+sha256sums=('f710b2ea7ca39c4bdcfb6de61211e614b4504e35267619690799e29466c6537e')
+
+build() {
+  cd "${srcdir}/${_pkgname}-${pkgver}"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "${srcdir}/${_pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 'COPYING' "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
+}
