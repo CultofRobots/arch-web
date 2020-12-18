@@ -1,6 +1,3 @@
-post_install() {
-}
-
 post_upgrade() {
   echo "====================================================================================================="
   echo "You need to execute any database migration with:"
@@ -11,4 +8,3 @@ post_upgrade() {
   echo "Check the release notes for any other step: https://www.bookstackapp.com/docs/admin/updates/"
   echo -e "=====================================================================================================\n"
 }
-
