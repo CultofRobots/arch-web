@@ -1,0 +1,14 @@
+post_install() {
+}
+
+post_upgrade() {
+  echo "====================================================================================================="
+  echo "You need to execute any database migration with:"
+  echo -e "  cd /usr/share/webapps/bookstack && sudo -u http php artisan migrate\n"
+  echo "In addition, Clearing the cache is also recommended:"
+  echo "  sudo -u http php artisan cache:clear"
+  echo -e "  sudo -u http php artisan view:clear\n"
+  echo "Check the release notes for any other step: https://www.bookstackapp.com/docs/admin/updates/"
+  echo -e "=====================================================================================================\n"
+}
+
