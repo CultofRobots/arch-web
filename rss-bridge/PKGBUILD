@@ -6,12 +6,12 @@
 pkgbase=rssbridge
 pkgname=rss-bridge
 pkgver=2020_11_10
-pkgrel=1
+pkgrel=2
 pkgdesc="The RSS feed for websites missing it"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/RSS-Bridge/rss-bridge/wiki"
 license=("Unlicense")
-depends=(php)
+depends=(php7)
 backup=(
   "etc/webapps/$pkgname/config.ini.php"
   "etc/webapps/$pkgname/whitelist.txt"

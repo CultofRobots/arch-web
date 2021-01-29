@@ -6,12 +6,12 @@
 pkgname=bookstack
 _pkgname=BookStack
 pkgver=0.31.4
-pkgrel=1
+pkgrel=2
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/BookStackApp/BookStack"
 license=('custom')
-depends=('php' 'php-gd')
+depends=('php7' 'php7-gd' 'php7-fpm')
 makedepends=('composer')
 install="$pkgname.install"
 backup=("etc/webapps/$pkgname/config.env")

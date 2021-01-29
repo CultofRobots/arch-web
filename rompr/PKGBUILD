@@ -5,13 +5,13 @@
 
 pkgname=rompr
 pkgver=1.48
-pkgrel=1
+pkgrel=2
 pkgdesc="Web frontend to MPD"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://fatg3erman.github.io/RompR/"
 license=('custom')
-depends=('imagemagick' 'php')
-optdepends=('apache' 'lighttpd' 'nginx' 'php-jsonreader-git: Low Memory Mode')
+depends=('imagemagick' 'php7')
+optdepends=('apache' 'lighttpd' 'nginx' 'php7-jsonreader-git: Low Memory Mode')
 provides=()
 conflicts=()
 replaces=()
