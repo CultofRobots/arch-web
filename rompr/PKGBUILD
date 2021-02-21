@@ -5,7 +5,7 @@
 
 pkgname=rompr
 pkgver=1.54
-pkgrel=2
+pkgrel=1
 pkgdesc="Web frontend to MPD"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://fatg3erman.github.io/RompR/"
