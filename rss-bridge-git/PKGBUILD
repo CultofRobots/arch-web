@@ -5,7 +5,7 @@
 
 pkgname=rss-bridge-git
 _pkgname=rss-bridge
-pkgver=2020.11.10.r0.gff50e491
+pkgver=2020.11.10.r58.g2ce1a636
 pkgrel=1
 pkgdesc="The RSS feed for websites missing it"
 arch=('x86_64' 'armv7h' 'aarch64')
