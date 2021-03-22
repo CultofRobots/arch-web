@@ -21,7 +21,7 @@ sha256sums=('05ce3038e37f7fb288d0446680c1461263f487681cdde16c76cb6d7eca9b3bb3')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"
-  composer install --no-scripts --no-dev --ignore-platform-reqs --no-interaction
+  composer install --no-scripts --no-dev --ignore-platform-reqs --no-interaction --optimize-autoloader
 
   install -d "$pkgdir/usr/share/webapps/$pkgname" "$pkgdir/usr/share/licenses/$pkgname" "$pkgdir/etc/webapps/$pkgname"
   cp -r * "$pkgdir/usr/share/webapps/$pkgname"
