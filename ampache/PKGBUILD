@@ -5,7 +5,7 @@
 
 pkgname=ampache
 pkgver=4.4.1
-pkgrel=2
+pkgrel=1
 pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
