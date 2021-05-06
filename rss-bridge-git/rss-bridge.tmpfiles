@@ -1,3 +1,0 @@
-d /var/cache/rss-bridge 0750 http http
-d /var/cache/rss-bridge/pages 0750 http http
-d /var/cache/rss-bridge/server 0750 http http
