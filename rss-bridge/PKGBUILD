@@ -5,23 +5,25 @@
 
 pkgbase=rssbridge
 pkgname=rss-bridge
-pkgver=2020_11_10
-pkgrel=2
+pkgver=2021_04_25
+pkgrel=1
 pkgdesc="The RSS feed for websites missing it"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/RSS-Bridge/rss-bridge/wiki"
 license=("Unlicense")
-depends=(php7)
+depends=(php)
 backup=(
   "etc/webapps/$pkgname/config.ini.php"
   "etc/webapps/$pkgname/whitelist.txt"
   )
 source=(
   "https://github.com/RSS-Bridge/$pkgname/archive/${pkgver//_/-}.tar.gz"
+  "$pkgname.sysusers"
   "$pkgname.tmpfiles"
 )
-sha256sums=('345e5d947a700dd8e1c685513fd6b47ce0e031c3530940bc5ccb8e6cbf82d2a5'
-            'f895b19c10923515a157df08c9cf1128c93cd3fe43afc935b9fa9647138f99f2')
+sha256sums=('19adf5a55d4db5383625a43aa62892593e493303a7bf772d8be0d199f6d1c3bb'
+            '42eb933a4632ada3247341d24f967c76cf363ff50e6ed13b39963983454f8020'
+            '6f9122e50e2b9164e59b1b9062663559cb5bc3ef3bd59b3ffafb7d486ec71a13')
 
 package() {
 
@@ -32,19 +34,19 @@ package() {
   mkdir -p "$_instdir"
   cp -ra * "$_instdir/"
 
-  # setup cache dir
-  install -Dm644 "$srcdir/$pkgname.tmpfiles" "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
-  rm -r "$_instdir"/cache
-  ln -sf /var/cache/$pkgname "$_instdir"/cache
-
-  # link configs to /etc
+  # move config to /etc
   install -D config.default.ini.php $pkgdir/etc/webapps/$pkgname/config.ini.php
   install -D whitelist.default.txt $pkgdir/etc/webapps/$pkgname/whitelist.txt
   ln -s "/etc/webapps/$pkgname/config.ini.php" "$pkgdir/usr/share/webapps/$pkgname/config.ini.php"
   ln -s "/etc/webapps/$pkgname/whitelist.txt" "$pkgdir/usr/share/webapps/$pkgname/whitelist.txt"
 
-  # fix permissions
-  chown -R http:http $pkgdir/etc/webapps/$pkgname $pkgdir/usr/share/webapps/$pkgname/
+  # setup user and directory creation
+  install -Dm644 "$srcdir/$pkgname.sysusers" "$pkgdir/usr/lib/sysusers.d/$pkgname.conf"
+  install -Dm644 "$srcdir/$pkgname.tmpfiles"  "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+
+  rm -r "$_instdir"/cache
+  ln -s /var/cache/$pkgname "$_instdir"/cache
+
   find "$pkgdir"/usr/share/webapps/${pkgname} -type f -exec chmod 0644 {} \;
   find "$pkgdir"/usr/share/webapps/${pkgname} -type d -exec chmod 0755 {} \;
 }
