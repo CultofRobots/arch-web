@@ -24,6 +24,7 @@ source=(
 sha256sums=('19adf5a55d4db5383625a43aa62892593e493303a7bf772d8be0d199f6d1c3bb'
             '42eb933a4632ada3247341d24f967c76cf363ff50e6ed13b39963983454f8020'
             '32bc1d3a61862fe87dd8b72b814feebe72e2d2b975e489e00d612fc607ae9d7a')
+conflicts=("rss-bridge-git")
 
 package() {
 
