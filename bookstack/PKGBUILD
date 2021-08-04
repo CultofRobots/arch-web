@@ -5,7 +5,7 @@
 
 pkgname=bookstack
 _pkgname=BookStack
-pkgver=21.05.3
+pkgver=21.05.4
 pkgrel=1
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -18,7 +18,7 @@ options=("!strip")
 backup=("etc/webapps/$pkgname/config.env")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/BookStackApp/BookStack/archive/v${pkgver}.tar.gz"
         "$pkgname.install")
-sha256sums=('a83e2a30ebf58e2bf6d3f0581c7be2cd94d9db531532d1862bc61b6f60f50c0d'
+sha256sums=('c9142af3590c693e47ee4350f21b327242e0036c46bfcdf533b9a6f76f805e9a'
             '35181f026dcabb215f15ba9d3406373b82db946755f4e2f30c4bc96de0ce5834')
 
 package() {
