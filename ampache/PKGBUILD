@@ -4,13 +4,13 @@
 # Contributor: max-k <max-k [at] post [dot] com>
 
 pkgname=ampache
-pkgver=4.4.3
+pkgver=5.0.0
 pkgrel=1
 pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
 license=('GPL')
-depends=('mariadb>=10.0' 'php>=7.1' 'php-intl')
+depends=('mariadb>=10.0' 'php7' 'php7-intl')
 optdepends=('lame: all transcoding/downsampling'
             'vorbis-tools: all transcoding'
             'flac: flac transcoding/downsampling'
@@ -21,8 +21,8 @@ install="${pkgname}.install"
 source=("https://github.com/ampache/ampache/releases/download/${pkgver}/${pkgname}-${pkgver}_all.zip"
         "nginx-example.conf"
         "${pkgname}.install")
-sha256sums=('3e37d6902f70059387f7b9658b53f4f1d12f3afca078dd0925fb627d9227d531'
-            'd579f125fc85b6862dc2bd950b6aa3a4ffdad219323b8ee2c93282c8f223c3eb'
+sha256sums=('c8e7c797c6219726060264414b3149c2b1b825a18695d111cf417a084a7350bb'
+            'cf8970880b534b147a13953a78be670ac1367ecb188392dfa7f37c4ec14021b8'
             '218f6293f3b63310bba36c6903f907a2b5594013d4d64d206d7ac45c85b1ed26')
 options=(!strip)
 
