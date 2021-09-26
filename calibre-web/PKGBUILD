@@ -26,6 +26,7 @@ depends=(
   'python-unidecode'
   'python-blinker'
   'python-iso639'
+  'python-lxml'
 )
 provides=('calibre-web')
 install=calibre-web.install
