@@ -2,24 +2,25 @@
 # Website: https://github.com/CultofRobots/
 # Based on PKGBUILD from AUR
 # Contributor: Spencer Muise <smuise [at] spencermuise [dot] ca>
+# Contributor: MartinRys <spleefer90 [at] gmail [dot] com> # bookstack.hook
 
 pkgname=bookstack
 _pkgname=BookStack
 pkgver=21.08.3
-pkgrel=1
+pkgrel=2
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/BookStackApp/BookStack"
 license=('MIT')
 depends=('php' 'php-gd' 'php-fpm')
 makedepends=('composer')
-install="$pkgname.install"
+install="$pkgname.hook"
 options=("!strip")
 backup=("etc/webapps/$pkgname/config.env")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/BookStackApp/BookStack/archive/v${pkgver}.tar.gz"
-        "$pkgname.install")
+        "$pkgname.hook")
 sha256sums=('9fa06c99f077e3ad6bf86dc8b68fe32470e8f9207eea4dd6f61ac148d771cb4e'
-            '35181f026dcabb215f15ba9d3406373b82db946755f4e2f30c4bc96de0ce5834')
+            '65bfc4fe0d8c615504d766e3130a5c91e6e55eb997e0102785ea83e4cdc6f7b4')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"
@@ -43,4 +44,6 @@ package() {
   chown -R http:http "$pkgdir/var/lib/$pkgname"
   chmod 775 "$pkgdir/var/lib/$pkgname"
   ln -s "/var/lib/$pkgname" "$pkgdir/usr/share/webapps/$pkgname/storage"
+
+  install -vDm 644 "../${pkgname}.hook" "${pkgdir}/etc/pacman.d/hooks/${pkgname}.hook"
 }
