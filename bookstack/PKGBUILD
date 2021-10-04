@@ -6,20 +6,19 @@
 
 pkgname=bookstack
 _pkgname=BookStack
-pkgver=21.08.3
-pkgrel=2
+pkgver=21.08.4
+pkgrel=1
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/BookStackApp/BookStack"
 license=('MIT')
 depends=('php' 'php-gd' 'php-fpm')
 makedepends=('composer')
-install="$pkgname.hook"
 options=("!strip")
 backup=("etc/webapps/$pkgname/config.env")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/BookStackApp/BookStack/archive/v${pkgver}.tar.gz"
         "$pkgname.hook")
-sha256sums=('9fa06c99f077e3ad6bf86dc8b68fe32470e8f9207eea4dd6f61ac148d771cb4e'
+sha256sums=('750417187003b6e0e922be6874e60fa8fda898c31ad598f7bc2f7e3e7d178f1c'
             '65bfc4fe0d8c615504d766e3130a5c91e6e55eb997e0102785ea83e4cdc6f7b4')
 
 package() {
