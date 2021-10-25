@@ -8,4 +8,4 @@ Target = bookstack
 Description = Update BookStack installation
 When = PostTransaction
 # https://www.bookstackapp.com/docs/admin/updates/
-Exec = /usr/bin/runuser -u http -- /bin/bash -c "/usr/bin/php /usr/share/webapps/bookstack/artisan migrate --force && /usr/bin/php /usr/share/webapps/bookstack/artisan cache:clear && /usr/bin/php /usr/share/webapps/bookstack/artisan config:clear && /usr/bin/php /usr/share/webapps/bookstack/artisan view:clear"
+Exec = /usr/bin/runuser -u http -- /bin/bash -c "/usr/bin/php /usr/share/webapps/bookstack/artisan migrate --force && /usr/bin/php /usr/share/webapps/bookstack/artisan cache:clear && /usr/bin/php /usr/share/webapps/bookstack/artisan config:clear && /usr/bin/php /usr/share/webapps/bookstack/artisan view:clear && /usr/bin/php /usr/share/webapps/bookstack/artisan package:discover --ansi"
