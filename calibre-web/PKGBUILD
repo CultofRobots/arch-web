@@ -17,6 +17,7 @@ depends=(
   'python-flask-login'
   'python-flask-principal'
   'python-flask'
+  'python-flask-wtf'
   'python-pypdf2'
   'python-pytz'
   'python-requests'
