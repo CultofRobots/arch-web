@@ -4,7 +4,7 @@
 # Contributor: gls <ghostlovescorebg [at] gmail [dot] com>
 
 pkgname=rompr
-pkgver=1.60
+pkgver=1.60.1
 pkgrel=1
 pkgdesc="Web frontend to MPD"
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -20,7 +20,7 @@ install=rompr.install
 source=("${pkgname}-${pkgver}.zip::https://github.com/fatg3erman/RompR/releases/download/${pkgver}/${pkgname}-${pkgver}.zip"
         'rompr.install'
         'nginx.example.conf')
-sha256sums=('721b0a1e021236600873ca39ffd781098df51c85f87cba8f64352907df7913fd'
+sha256sums=('35c1af52754468aece86ad3428a3a94246bdbad9992beef9999c413b8caeb8d5'
             'e4109f21b6d2316a091cacd02fb51d9583b985901ede172e2d24ee4ea8e9bd18'
             '1737c511dc4a65d54a554ab013f3821b6c5332bb77858c66593b67872977b388')
 options=(!strip)
