@@ -4,7 +4,7 @@
 # Contributor: Spencer Muise <smuise [at] spencermuise [dot] ca>
 
 pkgname=calibre-web
-pkgver=0.6.14
+pkgver=0.6.15
 pkgrel=1
 pkgdesc="Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -38,11 +38,13 @@ source=(
   'calibre-web.sysusers'
   'calibre-web.tmpfiles'
 )
-sha256sums=('1a70621399dd6c2cb53e5a4c775f0e22105effe85adfeab0d030293caa524701'
-            '91352616c004ab08590e892b1f8a74cf53fda876254699e3126021f557ea0231'
-            'f2072ddcbd5753b75272b90d571c49b665506705d8da682210be64f908708e2c'
-            'b5d6c225761244b6c698af0279c9501bb9514e3e2a5151ca6e3212a4f5d0d76a'
-            '82fae88cbed6d69e5a04586293de81bdc55994a4fe003178c39b5a35f2c87c1a')
+sha256sums=(
+  '7da0e9fc8416980a98cb9c9993c355f795a84613d506910c07ef87807a5ad502'
+  '91352616c004ab08590e892b1f8a74cf53fda876254699e3126021f557ea0231'
+  'f2072ddcbd5753b75272b90d571c49b665506705d8da682210be64f908708e2c'
+  'b5d6c225761244b6c698af0279c9501bb9514e3e2a5151ca6e3212a4f5d0d76a'
+  '82fae88cbed6d69e5a04586293de81bdc55994a4fe003178c39b5a35f2c87c1a'
+)
 
 package() {
   cd $pkgname-$pkgver
