@@ -13,7 +13,7 @@ pkgdesc='The Free Software Media System'
 arch=('x86_64' 'armv7h' 'aarch64')
 url='https://github.com/jellyfin/jellyfin'
 license=('GPL2')
-makedepends=('dotnet-sdk>=5' 'nodejs<18' 'npm' 'git')
+makedepends=('dotnet-sdk>=6' 'nodejs' 'npm' 'git')
 source=("jellyfin-$pkgver.tar.gz::https://github.com/jellyfin/jellyfin/archive/v$pkgver.tar.gz"
         "jellyfin-web-$pkgver.tar.gz::https://github.com/jellyfin/jellyfin-web/archive/v$pkgver.tar.gz"
         'jellyfin.conf'
