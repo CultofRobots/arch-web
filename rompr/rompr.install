@@ -1,15 +1,32 @@
 post_install() {
-  ln -s /usr/share/webapps/rompr /srv/http/
-  echo -e "\e[1;93mINFO:\e[1;39m check '/var/lib/rompr/nginx.example.conf' to setup your webserver"
-  echo -e "\e[1;93mINFO:\e[1;39m check 'https://fatg3erman.github.io/RompR/' for additional installion and configuration options"
-  post_upgrade;
-}
-
-post_upgrade() {
-  # fix ownership of /var/lib/rompr
-  [ -d /var/lib/rompr ] && chown -R http:http /var/lib/rompr
-}
-
-post_remove() {
-  [ -L /srv/http/rompr ] && unlink /srv/http/rompr
+  echo "RompR has been installed"
+  echo ""
+  echo "-> Webserver"
+  echo "   RompR is a php webapp, and you now need to configure a php-capable"
+  echo "   webserver or reverse proxy to serve it."
+  echo "    - Nginx instructions are at:"
+  echo "      https://fatg3erman.github.io/RompR/Recommended-Installation-on-Linux"
+  echo "    - Apache instructions are at:"
+  echo "      https://fatg3erman.github.io/RompR/Installation-on-Linux-Alternative-Method"
+  echo ""
+  echo "-> Database"
+  echo "   The default installation uses an sqlite file to keep track of the MPD database"
+  echo "   This can be substituted for mysql, instructions at:"
+  echo "   https://fatg3erman.github.io/RompR/Using-a-MySQL-server"
+  echo "   (however, even a 10,000+ song database results in barely a 1,5M .sq3 file…"
+  echo "   and mysql is probably overkill here)"
+  echo ""
+  echo "-> Permissions"
+  echo "   Finally, once you have setup a webserver, permissions will need fixing on:"
+  echo "    - /usr/share/webapps/rompr/"
+  echo "    - /var/lib/rompr/"
+  echo ""
+  echo "-> Configuring websocket server"
+  echo "   Users of the MPD music player can take advantage of a Websocket interface"
+  echo "   that requires the optdepends listed above. See:"
+  echo "   https://fatg3erman.github.io/RompR/Rompr-And-MPD"
+  echo ""
+  echo "-> Backend"
+  echo "   You may need to set up the backend service for RompR to work properly."
+  echo "   See: https://fatg3erman.github.io/RompR/Backend-Daemon"
 }
