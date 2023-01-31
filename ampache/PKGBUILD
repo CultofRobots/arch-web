@@ -4,26 +4,38 @@
 # Contributor: max-k <max-k [at] post [dot] com>
 
 pkgname=ampache
-pkgver=5.1.1
+pkgver=5.5.6
 pkgrel=1
 pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
 license=('GPL')
-depends=('mariadb>=10.0' 'php>=8.0' 'php-intl')
-optdepends=('lame: all transcoding/downsampling'
-            'vorbis-tools: all transcoding'
-            'flac: flac transcoding/downsampling'
-            'faad2: m4a transcoding/downsampling'
-            'mp3splt: mp3 and ogg transcoding/downsampling')
-conflicts=('ampache-git' 'ampache-development')
+depends=(
+  'mariadb>=10.0'
+  'php>=8.1'
+)
+optdepends=(
+  'lame: all transcoding/downsampling'
+  'vorbis-tools: all transcoding'
+  'flac: flac transcoding/downsampling'
+  'faad2: m4a transcoding/downsampling'
+  'mp3splt: mp3 and ogg transcoding/downsampling'
+)
+conflicts=(
+  'ampache-git'
+  'ampache-development'
+)
 install="${pkgname}.install"
-source=("https://github.com/ampache/ampache/releases/download/${pkgver}/${pkgname}-${pkgver}_all_php8.0.zip"
+source=("https://github.com/ampache/ampache/releases/download/${pkgver}/${pkgname}-${pkgver}_all_php8.1.zip"
         "nginx-example.conf"
-        "${pkgname}.install")
-sha256sums=('08307767ec6ca53341b4defca7931423c671e2da8ef6d84838991ff6baa2b02f'
+        "${pkgname}.install"
+        "${pkgname}.sysusers"
+        "${pkgname}.tmpfiles")
+sha256sums=('3c7196b228b2b0be1012b7a93e07a8c906bcac65bef743fe1121cc6452b90768'
             'f5e9ae092c73706a21d73bc76c9d0b405c8f592064d7ac96b20653ac39c1acd4'
-            '218f6293f3b63310bba36c6903f907a2b5594013d4d64d206d7ac45c85b1ed26')
+            '218f6293f3b63310bba36c6903f907a2b5594013d4d64d206d7ac45c85b1ed26'
+            'aa1fa320703a4020cdc673e1c35a33a41158e7fb687f7c275065c424b98f9d12'
+            '8da7e7effb5b0b5161f1592c4a3ab14fda832af2b610eddc396f0b21ed4151e9')
 options=(!strip)
 
 build() {
@@ -38,9 +50,11 @@ package() {
   _vendordir="${_targetdir}/lib/vendor"
   mkdir -p "$_targetdir"
   cp -r ./* "${_targetdir}/"
-  unlink "${_targetdir}/${pkgname}-${pkgver}_all_php8.0.zip"
+  unlink "${_targetdir}/${pkgname}-${pkgver}_all_php8.1.zip"
   unlink "${_targetdir}/nginx-example.conf"
   unlink "${_targetdir}/ampache.install"
+  unlink "${_targetdir}/${pkgname}.sysusers"
+  unlink "${_targetdir}/${pkgname}.tmpfiles"
   rm -r "${_targetdir}/docs/man"
   mkdir -p "$_docdir"
   mkdir -p "$_mandir"
@@ -49,4 +63,7 @@ package() {
   find "$_targetdir" -type d -exec chmod 755 {} \;
   find "$_docdir" -type d -exec chmod +x {} \;
   find "$_vendordir" -type d -name '.git' -exec rm -r {} 2>/dev/null \; || true
+ 
+  install -Dm644 ${pkgname}.sysusers "$pkgdir/usr/lib/sysusers.d/${pkgname}.conf"
+  install -Dm644 ${pkgname}.tmpfiles "$pkgdir/usr/lib/tmpfiles.d/${pkgname}.conf"
 }
