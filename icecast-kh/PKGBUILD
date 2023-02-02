@@ -9,7 +9,7 @@
 # Contributor: Jason Chu <jchu [at] xentac [dot] net>
 
 pkgname=icecast-kh
-pkgver=2.4.0_kh16
+pkgver=2.4.0_kh18
 pkgrel=1
 pkgdesc='The KH branche extends the official release of Icecast with features that may be (if found to be working out well) merged into the next official release.'
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -27,7 +27,7 @@ source=(
   "${pkgname}.sysusers"
   "${pkgname}.tmpfiles"
 )
-sha512sums=('452e7c2c4eaec5013189bebf08cb706e35b1ff9945cabc2f8791ddd0cbb6d83b540b0ad011db3b09bb40bca2f36aa055d9f061aa379fa24ef2c5c5a1219f225c'
+sha512sums=('4582fd8eab4f9ece7d00319ec134b662999950b313c72a06b6493e0e13874dd1abc4e93b8fd732c6db628dcf2ad4c8d6e3264a3e2b700bd33b3e5010fb7d9438'
             'db10c9c4b6f12fa2524820afd9f14d1ee14a7af6dfa1896975394a0d95ec412332f36f3d95375b5cd8679d64093ae609ebb66b9de14b3f95afda980f4f6dd458'
             '8b9170e155e393396aaf471bd304b77d6ae6b8a6198959aa5e1ddc8fe55be7f19efc844d0352300ba5621a8de9e47cc3842b8b8d0ac8606635e27346d805f497'
             'ca0c6e81e84910ac5bcd573aa280224426201b4aa8580f974b17daea6f95472e3ba47b3319ea1291d6762e858a3f7e9120f05357fe02aa83f01bb767862a04c8'
