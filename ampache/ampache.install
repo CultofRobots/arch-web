@@ -21,12 +21,10 @@ EOF
 }
 
 post_upgrade() {
-    if [ "$(vercmp "$2" 3.8.2-2)" -lt 0 ]; then
+    if [ "$(vercmp "$2" 6.0.0-1)" -lt 0 ]; then
         cat << EOF
-==> Warning : Path has been updated to fit Archlinux Packaging Guidelines
-    From : /srv/http/ampache
-    To : /usr/share/webapps/ampache
-    Please update your virtualhosts.
+==> NOTE : For database update 600005; please consider using the CLI update command
+    php bin/cli admin:updateDatabase -e
 
 EOF
     fi
