@@ -21,7 +21,7 @@ EOF
 }
 
 post_upgrade() {
-    if [ "$(vercmp "$2" 6.0.0-1)" -lt 0 ]; then
+    if [ "$(vercmp "$2" 6.1.0-1)" -lt 0 ]; then
         cat << EOF
 ==> NOTE : For database update 600005; please consider using the CLI update command
     php bin/cli admin:updateDatabase -e
