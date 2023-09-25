@@ -5,8 +5,8 @@
 
 pkgbase=rssbridge
 pkgname=rss-bridge
-pkgver=2023_07_13
-pkgrel=2
+pkgver=2023_09_24
+pkgrel=1
 pkgdesc="The RSS feed for websites missing it"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/RSS-Bridge/rss-bridge/wiki"
@@ -20,7 +20,7 @@ source=(
   "$pkgname.sysusers"
   "$pkgname.tmpfiles"
 )
-sha256sums=('2aacd86a6c5387660782b881d7b07bd278477e55913e63c4dd6aae09e02b9d50'
+sha256sums=('8afad274d0c208a0cda5501c5aef64310b307b81a2df4cd28a362d3db89b4b15'
             '42eb933a4632ada3247341d24f967c76cf363ff50e6ed13b39963983454f8020'
             '53103f6c5ad1bb59823ed3b0da6d0900517ed199bf64881b7bbf85f12dee39ad')
 conflicts=("rss-bridge-git")
