@@ -25,6 +25,8 @@ post_upgrade() {
         cat << EOF
 ==> NOTE : For database update 600005; please consider using the CLI update command
     php bin/cli admin:updateDatabase -e
+    If you use Subsonic we noticed some clients don't use *.view. The /rest htaccess file has been updated to support this.
+    Use php bin/installer htaccess -e to update your htaccess files
 
 EOF
     fi
