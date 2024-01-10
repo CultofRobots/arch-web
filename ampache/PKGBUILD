@@ -5,7 +5,7 @@
 
 pkgname=ampache
 pkgver=6.2.1
-pkgrel=1
+pkgrel=2
 pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
@@ -26,6 +26,7 @@ conflicts=(
   'ampache-git'
   'ampache-development'
 )
+backup=("etc/webapps/$pkgname/ampache.cfg.php")
 install="${pkgname}.install"
 source=("https://github.com/ampache/ampache/releases/download/${pkgver}/${pkgname}-${pkgver}_all_php${_phpver}.zip"
         "nginx-example.conf"
@@ -36,12 +37,8 @@ sha256sums=('6c6f300735ecb7a571294d84bd27ddad687d0293aa15d435337608d440d36d69'
             'f5e9ae092c73706a21d73bc76c9d0b405c8f592064d7ac96b20653ac39c1acd4'
             '44b4f523be305532a9532425cad4c880b42cf7ef925664ab1ea6b1f74015b84f'
             'aa1fa320703a4020cdc673e1c35a33a41158e7fb687f7c275065c424b98f9d12'
-            '8da7e7effb5b0b5161f1592c4a3ab14fda832af2b610eddc396f0b21ed4151e9')
+            '72562d933003c99cd2447469395fa52033dcedc86091063a7eeac3dd22e5f09e')
 options=(!strip)
-
-build() {
-  echo "" > /dev/null
-}
 
 package() {
   cd "$srcdir" || exit 1
@@ -49,9 +46,11 @@ package() {
   _docdir="${pkgdir}/usr/share/doc/${pkgname}"
   _mandir="${pkgdir}/usr/share/man/man1"
   _vendordir="${_targetdir}/lib/vendor"
+
+
   mkdir -p "$_targetdir"
   cp -r ./* "${_targetdir}/"
-  unlink "${_targetdir}/${pkgname}-${pkgver}_all_php8.2.zip"
+  unlink "${_targetdir}/${pkgname}-${pkgver}_all_php${_phpver}.zip"
   unlink "${_targetdir}/nginx-example.conf"
   unlink "${_targetdir}/ampache.install"
   unlink "${_targetdir}/${pkgname}.sysusers"
@@ -64,7 +63,11 @@ package() {
   find "$_targetdir" -type d -exec chmod 755 {} \;
   find "$_docdir" -type d -exec chmod +x {} \;
   find "$_vendordir" -type d -name '.git' -exec rm -r {} 2>/dev/null \; || true
- 
+
+  mkdir -p "$pkgdir/etc/webapps/"
+  mv "${pkgdir}/usr/share/webapps/${pkgname}/config" "$pkgdir/etc/webapps/ampache"
+  ln -s "/etc/webapps/$pkgname" "$pkgdir/usr/share/webapps/$pkgname/config"
+
   install -Dm644 ${pkgname}.sysusers "$pkgdir/usr/lib/sysusers.d/${pkgname}.conf"
   install -Dm644 ${pkgname}.tmpfiles "$pkgdir/usr/lib/tmpfiles.d/${pkgname}.conf"
 }

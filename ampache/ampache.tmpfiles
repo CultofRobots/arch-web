@@ -1,1 +1,2 @@
 d /var/lib/ampache 0755 ampache ampache -
+d /etc/webapps/ampache 755 ampache ampache -
