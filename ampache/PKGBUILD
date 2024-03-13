@@ -4,8 +4,8 @@
 # Contributor: max-k <max-k [at] post [dot] com>
 
 pkgname=ampache
-pkgver=6.2.1
-pkgrel=3
+pkgver=6.3.0
+pkgrel=1
 pkgdesc="PHP web based audio/video streaming application and file manager"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="http://www.ampache.org/"
@@ -33,7 +33,7 @@ source=("https://github.com/ampache/ampache/releases/download/${pkgver}/${pkgnam
         "${pkgname}.install"
         "${pkgname}.sysusers"
         "${pkgname}.tmpfiles")
-sha256sums=('28618279ea6854daa2e487c140a68c89b59ad0ed9e2ee7f9bf98dbf3ecbbaaf5'
+sha256sums=('d4e69f4da1354633139730aa99b39a5f2aec4d34073b6a073a44ca355ca9239f'
             'f5e9ae092c73706a21d73bc76c9d0b405c8f592064d7ac96b20653ac39c1acd4'
             '44b4f523be305532a9532425cad4c880b42cf7ef925664ab1ea6b1f74015b84f'
             'aa1fa320703a4020cdc673e1c35a33a41158e7fb687f7c275065c424b98f9d12'
