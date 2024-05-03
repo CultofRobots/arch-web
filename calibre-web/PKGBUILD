@@ -5,7 +5,7 @@
 
 pkgname=calibre-web
 pkgver=0.6.21
-pkgrel=2
+pkgrel=3
 pkgdesc="Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/janeczku/calibre-web"
