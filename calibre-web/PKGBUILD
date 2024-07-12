@@ -4,8 +4,8 @@
 # Contributor: Spencer Muise <smuise [at] spencermuise [dot] ca>
 
 pkgname=calibre-web
-pkgver=0.6.21
-pkgrel=3
+pkgver=0.6.22
+pkgrel=2
 pkgdesc="Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/janeczku/calibre-web"
@@ -15,6 +15,7 @@ depends=(
   'python-advocate'
   'python-apscheduler'
   'python-babel'
+  'python-bleach'
   'python-chardet'
   'python-cryptography'
   'python-flask'
@@ -23,8 +24,10 @@ depends=(
   'python-flask-login'
   'python-flask-principal'
   'python-flask-wtf'
-  'python-pypdf2'
+  'python-magic'
+  'python-pypdf'
   'python-pytz'
+  'python-regex'
   'python-requests'
   'python-sqlalchemy'
   'python-tornado'
@@ -48,7 +51,7 @@ source=(
   'calibre-web.tmpfiles'
 )
 sha256sums=(
-  '007bc4168c86894b1f4aa8331ffba1c717befe4449c266356cbed6ebd592d337'
+  '08dc2ecbb869c5b9b26ec484fff9d8ee573d37889c795d72b49cdc56a761ece2'
   '91352616c004ab08590e892b1f8a74cf53fda876254699e3126021f557ea0231'
   'f2072ddcbd5753b75272b90d571c49b665506705d8da682210be64f908708e2c'
   'b5d6c225761244b6c698af0279c9501bb9514e3e2a5151ca6e3212a4f5d0d76a'
