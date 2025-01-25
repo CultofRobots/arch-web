@@ -1,0 +1,20 @@
+# Maintainer: willemw <willemw12@gmail.com>
+# Contributor: lp76 <l.peduto@gmail.com>
+
+pkgname=podget
+pkgver=0.9.3
+pkgrel=1
+pkgdesc='Simple tool to automate downloading of podcasts'
+arch=('x86_64' 'armv7h' 'aarch64')
+url=https://podget.sourceforge.net
+license=(GPL3)
+depends=(wget)
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/dvehrs/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('62a2d198d855cc827074e7d991aea739773266e29de074d61f249e03d2b4b253')
+
+package() {
+  install -Dm644 $pkgname-$pkgver/README -t "$pkgdir/usr/share/$pkgname"
+  cp -a $pkgname-$pkgver/SCRIPTS/ "$pkgdir/usr/share/$pkgname/scripts/"
+
+  make -C $pkgname-$pkgver prefix=/usr DESTDIR="$pkgdir/" install
+}
