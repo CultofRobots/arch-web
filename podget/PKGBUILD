@@ -1,4 +1,7 @@
-# Maintainer: willemw <willemw12@gmail.com>
+# Maintainer: robot <cultofrobots [at] protonmail [dot] com>
+# Website: https://github.com/CultofRobots/
+# Based on PKGBUILD from AUR: https://aur.archlinux.org/packages/podget
+# Contributor: willemw <willemw12@gmail.com>
 # Contributor: lp76 <l.peduto@gmail.com>
 
 pkgname=podget
