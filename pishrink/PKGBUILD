@@ -1,0 +1,31 @@
+# Maintainer: robot <cultofrobots [at] protonmail [dot] com>
+# Website: https://github.com/CultofRobots/
+# Contributor: danieltetraquark
+
+pkgname=pishrink
+_pkgname=PiShrink
+pkgver=24.10.23
+pkgrel=1
+pkgdesc="Make your pi images smaller!"
+conflicts=("pishrink-git")
+makedepends=()
+depends=()
+optdepends=(
+  'wget'
+  'parted'
+  'gzip'
+  'pigz'
+  'xz'
+  'udev'
+  'e2fsprogs'
+)
+license=('MIT')
+arch=('x86_64' 'armv7h' 'aarch64')
+url="https://github.com/Drewsif/PiShrink"
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/Drewsif/${pkgname}/archive/v${pkgver}.tar.gz")
+sha256sums=('a283a9325f2853d21cbbdb91174d4c74deeaf3bb5e3e07af816e77d472064d63')
+
+package() {
+    cd "$srcdir/${_pkgname}-${pkgver}"
+    install -Dm755 pishrink.sh "$pkgdir/usr/bin/pishrink"
+}
