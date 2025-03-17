@@ -6,7 +6,7 @@
 
 pkgname=bookstack
 _pkgname=BookStack
-pkgver=25.02
+pkgver=25.02.1
 pkgrel=1
 pkgdesc='A simple, self-hosted, easy-to-use platform for organising and storing information'
 arch=('x86_64' 'armv7h' 'aarch64')
@@ -29,7 +29,7 @@ source=(
   "$pkgname.conf"
 )
 sha256sums=(
-  'b6d9ba927ca4c797484152f35ccd40ad06952f0f0437311f7f6660f879d08613'
+  '863e31725d7552d6328b1e5344caf2406808f1108b88f02308454719aa35ab22'
   '65bfc4fe0d8c615504d766e3130a5c91e6e55eb997e0102785ea83e4cdc6f7b4'
   '82152fc91366d1bd623c559c03240f070e08d45a084a4c6e2e211f671bee8c78'
 )
