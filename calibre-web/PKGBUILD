@@ -4,8 +4,8 @@
 # Contributor: Spencer Muise <smuise [at] spencermuise [dot] ca>
 
 pkgname=calibre-web
-pkgver=0.6.24
-pkgrel=2
+pkgver=0.6.25
+pkgrel=1
 pkgdesc="Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 arch=('x86_64' 'armv7h' 'aarch64')
 url="https://github.com/janeczku/calibre-web"
@@ -49,24 +49,18 @@ provides=('calibre-web')
 install=calibre-web.install
 source=(
   "$pkgname-$pkgver.tar.gz::https://github.com/janeczku/calibre-web/archive/${pkgver}.tar.gz"
-  'sqlalchemy.patch'
   'calibre-web.install'
   'calibre-web.service'
   'calibre-web.sysusers'
   'calibre-web.tmpfiles'
 )
 sha256sums=(
-  '65d06505765e9a48c02451437e39afab3e7deb7bb13a705359ea271e32990cc8'
-  'e109ad7b1778582f740b38148c4518cc556f3e032efa3b2e9b6ff2af19a70f31'
+  '68d42fee4800f8ed0220d5da50e703f028874a5f0c3870c50ab50e566bb63f24'
   '91352616c004ab08590e892b1f8a74cf53fda876254699e3126021f557ea0231'
   'f2072ddcbd5753b75272b90d571c49b665506705d8da682210be64f908708e2c'
   'b5d6c225761244b6c698af0279c9501bb9514e3e2a5151ca6e3212a4f5d0d76a'
   '82fae88cbed6d69e5a04586293de81bdc55994a4fe003178c39b5a35f2c87c1a'
 )
-
-prepare() {
-  patch -d $pkgname-$pkgver -Np0 -i ../sqlalchemy.patch
-}
 
 package() {
   cd $pkgname-$pkgver
